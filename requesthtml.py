@@ -1,6 +1,5 @@
 import requests
 import json
-import time
 
 def jsonParse(str):
     print("Parsing the json...")
