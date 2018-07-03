@@ -1,1 +1,0 @@
-schtasks /Create /SC MINUTE /TN requesthtml TR/ <path_to_exe>
