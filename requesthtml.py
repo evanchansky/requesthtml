@@ -7,7 +7,8 @@ def jsonParse(str):
     try:
         var = result['data']['version']
         print('The server is working well')        
-        print('The current app server version is',var)        
+        print('The current app server version is',var)
+	print(str(datetime.now()))	
     except ValueError:
         print('We can not parse the string.')
     
