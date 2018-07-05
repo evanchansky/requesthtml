@@ -1,6 +1,7 @@
 import requests
 import json
 import datetime
+import os
 
 def format_timestamp():
 	dt = datetime.datetime.now()
@@ -41,10 +42,8 @@ def send_email(user, pwd, recipient, subject, body):
 	except:
 		print ("failed to send mail")
 
-
-
 def check_URL(user, pwd, recipient, link):
-	log = open('serverLog', 'a')
+	log = open("C:\\Users\\90499\\serverLog.txt", 'a')
 	try:	
 		response = requests.get(link, timeout=10)
 		jsonParse(response.text, log)
