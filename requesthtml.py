@@ -1,7 +1,7 @@
 import requests
 import json
 import datetime
-import os
+import sys
 
 def format_timestamp():
 	dt = datetime.datetime.now()
@@ -56,10 +56,20 @@ def check_URL(user, pwd, recipient, link):
 		print(e)
 	log.close()
 
-#Enter your information here in quotes
+def main():
+	userInputs = []
+	with open("C:\\Users\\90499\\requesthtml_Config.txt", 'r') as configFile:
+		for x in range(0,4):
+			line = configFile.readline()
+			index = line.find(':')+1
+			arg = line[index:].strip(' ').strip('\n')
+			userInputs.append(arg)
 
-SENDER = 'evanchansky@gmail.com'						# email address the message will be sent from (must be gmail account to use gmail server)
-PASSWORD = 'emanrules'									# password to the SENDER account
-RECEIVER = 'Chansky.EvanDouglas@hutchisonports.com'		# email address that the alert will be sent to (does not have to be a gmail account)	
-URL = 'https://mobileapps-as.hutchisonports.com/resources_hpt/server/status'
-check_URL(SENDER, PASSWORD, RECEIVER, URL)
+	# email address the message will be sent from (must be gmail account to use gmail server)
+	SENDER = userInputs[0]
+	PASSWORD = userInputs[1]								# password to the SENDER account
+	RECEIVER = userInputs[2]		# email address that the alert will be sent to (does not have to be a gmail account)	
+	URL = userInputs[3]
+	check_URL(SENDER, PASSWORD, RECEIVER, URL)
+
+main()
