@@ -3,11 +3,6 @@ import json
 import datetime
 import sys
 
-def format_timestamp():
-	dt = datetime.datetime.now()
-	timestamp = dt.strftime("%d/%m/%Y %H:%M:%S")
-	return timestamp
-
 def jsonParse(str, statusLog):
 	print("Parsing the json...")
 	result = json.loads(str)
@@ -18,7 +13,12 @@ def jsonParse(str, statusLog):
 		statusLog.write(newEntry)
 		print('The current app server version is',var)
 	except ValueError:
-		print('We can not parse the string.')
+		print('We can not parse the string.')	
+
+def format_timestamp():
+	dt = datetime.datetime.now()
+	timestamp = dt.strftime("%d/%m/%Y %H:%M:%S")
+	return timestamp		
     
 def send_email(user, pwd, recipient, subject, body):
 	import smtplib
