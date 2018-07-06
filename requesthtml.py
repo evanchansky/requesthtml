@@ -57,11 +57,10 @@ def check_URL(user, pwd, recipient, link):
 	log.close()
 
 def main():
-	userInputs = []
+userInputs = []
 	with open("C:\\Users\\90499\\requesthtml_Config.txt", 'r') as configFile:
-		for x in range(0,4):
-			line = configFile.readline()
-			index = line.find(':')+1
+		for line in configFile:
+			index = line.find(': ')+1
 			arg = line[index:].strip(' ').strip('\n')
 			userInputs.append(arg)
 
@@ -69,7 +68,8 @@ def main():
 	SENDER = userInputs[0]
 	PASSWORD = userInputs[1]								# password to the SENDER account
 	RECEIVER = userInputs[2]		# email address that the alert will be sent to (does not have to be a gmail account)	
-	URL = userInputs[3]
-	check_URL(SENDER, PASSWORD, RECEIVER, URL)
+	URLs = userInputs[3:]
+	for serverlink in URLs:
+		check_URL(SENDER, PASSWORD, RECEIVER, serverlink)
 
 main()
