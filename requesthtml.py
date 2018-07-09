@@ -43,7 +43,7 @@ def send_email(user, pwd, recipient, subject, body):
 		print ("failed to send mail")
 
 def check_URL(user, pwd, recipient, link):
-	log = open("C:\\Users\\90499\\serverLog.txt", 'a')
+	log = open("C:\\Users\\90499\\ServerCheck\\serverLog.txt", 'a')
 	try:	
 		response = requests.get(link, timeout=10)
 		jsonParse(response.text, log)
@@ -52,13 +52,13 @@ def check_URL(user, pwd, recipient, link):
 		print('Sending Email to administrator...')
 		newEntry = format_timestamp() + "\t ERROR: EMAIL SENT \n" 
 		log.write(newEntry)
-		send_email(SENDER, PASSWORD, RECEIVER,'Server Error','The mobile server might be down, please check')
+		send_email(user, pwd, recipient,'Server Error','The mobile server might be down, please check')
 		print(e)
 	log.close()
 
 def main():
-userInputs = []
-	with open("C:\\Users\\90499\\requesthtml_Config.txt", 'r') as configFile:
+	userInputs = []
+	with open("C:\\Users\\90499\\ServerCheck\\requesthtml_Config.txt", 'r') as configFile:
 		for line in configFile:
 			index = line.find(': ')+1
 			arg = line[index:].strip(' ').strip('\n')
