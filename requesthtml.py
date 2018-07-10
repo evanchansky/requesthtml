@@ -2,6 +2,7 @@ import requests
 import json
 import datetime
 import sys
+import configparser
 
 def format_timestamp():
 	dt = datetime.datetime.now()
@@ -57,19 +58,13 @@ def check_URL(user, pwd, recipient, link):
 	log.close()
 
 def main():
-	userInputs = []
-	with open("C:\\Users\\90499\\ServerCheck\\requesthtml_Config.txt", 'r') as configFile:
-		for line in configFile:
-			index = line.find(': ')+1
-			arg = line[index:].strip(' ').strip('\n')
-			userInputs.append(arg)
+	config = configparser.ConfigParser()
+	config.read('C:\\Users\\90499\\ServerCheck\\requesthtml_Config.ini')
 
-	# email address the message will be sent from (must be gmail account to use gmail server)
-	SENDER = userInputs[0]
-	PASSWORD = userInputs[1]								# password to the SENDER account
-	RECEIVER = userInputs[2]		# email address that the alert will be sent to (does not have to be a gmail account)	
-	URLs = userInputs[3:]
-	for serverlink in URLs:
-		check_URL(SENDER, PASSWORD, RECEIVER, serverlink)
+	SENDER = config['Setup']['UserEmail']			# email address the message will be sent from (must be gmail account to use gmail server)
+	PASSWORD = config['Setup']['UserPassword']		# password to the SENDER account
+	RECEIVER = config['Setup']['AdminEmail']		# email address that the alert will be sent to (does not have to be a gmail account)	
+	URL = config['Setup']['ServerURLs']			# URL to be check which displays the status of the server 
+	check_URL(SENDER, PASSWORD, RECEIVER, URL)
 
 main()
