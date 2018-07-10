@@ -64,7 +64,8 @@ def main():
 	SENDER = config['Setup']['UserEmail']			# email address the message will be sent from (must be gmail account to use gmail server)
 	PASSWORD = config['Setup']['UserPassword']		# password to the SENDER account
 	RECEIVER = config['Setup']['AdminEmail']		# email address that the alert will be sent to (does not have to be a gmail account)	
-	URL = config['Setup']['ServerURLs']			# URL to be check which displays the status of the server 
-	check_URL(SENDER, PASSWORD, RECEIVER, URL)
+	URLs = config['Setup']['ServerURLs'].split('\n')
+	for SERVERLINK in URLs:
+		check_URL(SENDER, PASSWORD, RECEIVER, SERVERLINK)
 
 main()
