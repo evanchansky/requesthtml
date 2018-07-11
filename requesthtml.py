@@ -44,7 +44,7 @@ def send_email(user, pwd, recipient, subject, body):
 		print ("failed to send mail")
 
 def check_URL(user, pwd, recipient, link):
-	log = open("C:\\Users\\90499\\ServerCheck\\serverLog.txt", 'a')
+	log = open("serverLog.txt", 'a')
 	try:	
 		response = requests.get(link, timeout=10)
 		jsonParse(response.text, log)
@@ -59,7 +59,7 @@ def check_URL(user, pwd, recipient, link):
 
 def main():
 	config = configparser.ConfigParser()
-	config.read('C:\\Users\\90499\\ServerCheck\\requesthtml_Config.ini')
+	config.read('requesthtml_Config.ini')
 
 	SENDER = config['Setup']['UserEmail']			# email address the message will be sent from (must be gmail account to use gmail server)
 	PASSWORD = config['Setup']['UserPassword']		# password to the SENDER account
