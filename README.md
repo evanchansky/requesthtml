@@ -1,5 +1,5 @@
 # requesthtml
-Code to automatically check server and send email to administrator if it is down
+### Code to automatically check server and send email to administrator if it is down
 1. Enter login information into the config file requesthtml_Config.ini
    - UserEmail = the email address the alert email will be sent from: **MUST** BE A **GMAIL** ACCOUNT TO USE GMAIL SMTP
    - UserPassword = the password to the above email address
