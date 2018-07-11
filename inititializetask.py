@@ -1,6 +1,6 @@
 import os
 
-exePathName = "C:\\Users\\90499\\ServerCheck" 	# Finds path the newly created .exe file - NEEDS TO BE ABLE TO FIND THIS AUTOMATICALLY
+exePathName = os.path.abspath(os.path.dirname(__file__))	# Finds path and directory of this file to direct and then locate the exe file
 
 commandPackageExe = "pipenv run pyinstaller --onefile --noconsole -y --distpath=%s %s\\requesthtml.py" % (exePathName,exePathName)
 print(commandPackageExe)
