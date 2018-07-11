@@ -1,7 +1,7 @@
 # requesthtml
 ### Code to automatically check server and send email to administrator if it is down
 1. Enter login information into the config file requesthtml_Config.ini
-   - UserEmail = the email address the alert email will be sent from: **MUST** BE A **GMAIL** ACCOUNT TO USE GMAIL SMTP
+   - UserEmail = the email address the alert email will be sent from: **MUST be a GMAIL account to use the Gmail SMTP**
    - UserPassword = the password to the above email address
    - AdminEmail = the administrator email address that will recevie an alert if the serve is down (can be **ANY** email address)
    - ServerURL = the URL or list of URLs to be checked: SEPERATE URLS BY **NEW LINES** 
