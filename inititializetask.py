@@ -1,6 +1,7 @@
 import os
 
-exePathName = os.path.abspath(os.path.dirname(__file__))	# Finds path and directory of this file to direct and then locate the exe file
+# Finds path and directory of this file to direct and then locate the exe file
+exePathName = os.path.abspath(os.path.dirname(__file__))	
 
 commandPackageExe = "pipenv run pyinstaller --onefile --noconsole -y --distpath=%s %s\\requesthtml.py" % (exePathName,exePathName)
 print(commandPackageExe)
@@ -10,4 +11,4 @@ commandSchtask = "schtasks /Create /SC MINUTE /TN requesthtml /TR %s\\requesthtm
 print(commandSchtask)
 os.system(commandSchtask) 
 
-wait = input("Press enter to continue")	
+wait = input("All set! Press enter to continue: ")
