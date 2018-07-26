@@ -2,12 +2,25 @@ import requests
 import json
 import datetime
 import sys
+import os
 import configparser
 
 def format_timestamp():
 	dt = datetime.datetime.now()
 	timestamp = dt.strftime("%d/%m/%Y %H:%M:%S")
 	return timestamp
+
+def resource_path(fileName):		
+	# Get absolute path to resource, works for dev and for PyInstaller 
+	wait = input("this module has been called")
+	if hasattr(sys, '_MEIPASS'):
+		os.chdir(sys._MEIPASS)
+		filePath = os.path.join(sys._MEIPASS, fileName)
+	else:
+		filePath = os.path.join(os.path.abspath(os.path.dirname(__file__)), fileName)
+		
+	check = input(filePath)
+	return filePath
 
 def jsonParse(str, statusLog):
 	print("Parsing the json...")
@@ -58,7 +71,11 @@ def check_URL(user, pwd, recipient, link):
 	log.close()
 
 def main():
+	logFile_Name = 	resource_path("serverLog.txt")			
+	SERVERLOG = open(logFile_Name, 'a')
+	
 	config = configparser.ConfigParser()
+	configFile_Name = resource_path("requesthtml_Config.ini")
 	config.read('requesthtml_Config.ini')
 
 	SENDER = config['Setup']['UserEmail']			# email address the message will be sent from (must be gmail account to use gmail server)
@@ -66,6 +83,6 @@ def main():
 	RECEIVER = config['Setup']['AdminEmail']		# email address that the alert will be sent to (does not have to be a gmail account)	
 	URLs = config['Setup']['ServerURLs'].split('\n')
 	for SERVERLINK in URLs:
-		check_URL(SENDER, PASSWORD, RECEIVER, SERVERLINK)
+		check_URL(SENDER, PASSWORD, RECEIVER, SERVERLINK, SERVERLOG)
 
 main()
