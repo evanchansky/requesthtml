@@ -4,6 +4,11 @@ import os
 pathName = os.path.abspath(os.path.dirname(__file__))	
 specPathName = os.path.join(pathName, "requesthtml.spec")
 exePathName = os.path.join(pathName, "requesthtml.exe")
+pathFileName = os.path.join(pathName, "path.txt")
+
+f = open(pathFileName, "w") 
+f.write(pathName)
+f.close()
 
 commandPackageExe = """pipenv run pyinstaller --onefile --noconsole -y --distpath="%s" "%s\\requesthtml.py" """ % (pathName,specPathName)
 print(commandPackageExe)
