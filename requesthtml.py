@@ -5,16 +5,24 @@ import sys
 import os
 import configparser
 
+FirstResourceCall = True
+
 def format_timestamp():
 	dt = datetime.datetime.now()
 	timestamp = dt.strftime("%d/%m/%Y %H:%M:%S")
 	return timestamp
 
-def resource_path(fileName):		
+def resource_path(fileName):
+	global FirstResourceCall
+	print(FirstResourceCall)
+	if FirstResourceCall:
+		FirstResourceCall = False
+		
 	# Get absolute path to resource, works for dev and for PyInstaller 
 	wait = input("this module has been called")
 	if hasattr(sys, '_MEIPASS'):
-		os.chdir(sys._MEIPASS)
+		if FirstResourceCall:
+			os.chdir(sys._MEIPASS)
 		filePath = os.path.join(sys._MEIPASS, fileName)
 	else:
 		filePath = os.path.join(os.path.abspath(os.path.dirname(__file__)), fileName)
@@ -76,7 +84,7 @@ def main():
 		pathName = f.read()
 	print(pathName)
 	
-	logFile_Name = 	os.path.join(pathName, "serverLog.txt")		
+	logFile_Name = os.path.join(pathName, "serverLog.txt")		
 	SERVERLOG = open(logFile_Name, 'a')
 	
 	config = configparser.ConfigParser()
