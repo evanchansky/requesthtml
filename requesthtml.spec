@@ -4,7 +4,8 @@ block_cipher = None
 
 added_files = [
 	('C:\\Users\\90499\\ServerCheck\\serverLog.txt', '.'),
-	('C:\\Users\\90499\\ServerCheck\\requesthtml_Config.ini', '.')
+	('C:\\Users\\90499\\ServerCheck\\requesthtml_Config.ini', '.'),
+	('C:\\Users\\90499\\ServerCheck\\path.txt', '.')
 	]
 
 a = Analysis(['C:\\Users\\90499\\ServerCheck\\requesthtml.py'],
