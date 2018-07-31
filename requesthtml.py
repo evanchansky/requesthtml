@@ -71,7 +71,12 @@ def check_URL(user, pwd, recipient, link):
 	log.close()
 
 def main():
-	logFile_Name = 	resource_path("serverLog.txt")			
+	pathFile = resource_path("path.txt")
+	with open(pathFile) as f:
+		pathName = f.read()
+	print(pathName)
+	
+	logFile_Name = os.path.join(pathName, "serverLog.txt")		
 	SERVERLOG = open(logFile_Name, 'a')
 	
 	config = configparser.ConfigParser()
