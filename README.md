@@ -5,7 +5,8 @@
    - UserPassword = the password to the above email address
    - AdminEmail = the administrator email address that will recevie an alert if the server is down (can be **ANY** email address)
    - ServerURL = the URL or list of URLs to be checked: **seperate URLs by _NEW LINES_** 
-2. Run the command "python InitializeTask.py" in Windows command script
-3. The code packages the script requesthtml.py into an .exe file with the proper configuration values (all in the same folder)
-4. The code runs a cmd to start a schtasks task that runs requesthtml.exe every 5 minutes
-5. To delete the task, type "schtasks /delete /tn requesthtml"
+2. Run the script "InitializeTask.py" by doubkle clicking it
+3. You are all set from here! Here is what the code does:
+   - The code packages the script requesthtml.py into an .exe file with the proper configuration values (all in the same folder)
+   - The code runs a cmd to start a schtasks task that runs requesthtml.exe every 5 minutes
+4. To delete the task, run the cript "deleteTask.py"
