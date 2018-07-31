@@ -5,6 +5,16 @@
    - UserPassword = the password to the above email address
    - AdminEmail = the administrator email address that will recevie an alert if the server is down (can be **ANY** email address)
    - ServerURL = the URL or list of URLs to be checked: **seperate URLs by _NEW LINES_** 
+   - Here's what it should look like:
+   
+ [Setup]
+ UserEmail = you@gmail.com
+ UserPassword = password
+ AdminEmail = admin@example.com
+ URLS = https://some_server_link.com
+   https://and_here_is_another_one.com
+   
+   
 2. Run the script "InitializeTask.py" by doubkle clicking it
 3. You are all set from here! Here is what the code does:
    - The code packages the script requesthtml.py into an .exe file with the proper configuration values (all in the same folder)
