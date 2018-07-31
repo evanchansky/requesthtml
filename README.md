@@ -7,7 +7,7 @@
    - ServerURL = the URL or list of URLs to be checked: **seperate URLs by _NEW LINES_** 
    - Here's what it should look like:
    
- [Setup]
+ [Setup] <br />
  UserEmail = you@gmail.com <br />
  UserPassword = password <br />
  AdminEmail = admin@example.com <br />
