@@ -8,11 +8,11 @@
    - Here's what it should look like:
    
  [Setup]
- UserEmail = you@gmail.com
- UserPassword = password
- AdminEmail = admin@example.com
- URLS = https://some_server_link.com
-   https://and_here_is_another_one.com
+ UserEmail = you@gmail.com <br />
+ UserPassword = password <br />
+ AdminEmail = admin@example.com <br />
+ URLS = https://some_server_link.com <br />
+   https://and_here_is_another_one.com <br />
    
    
 2. Run the script "InitializeTask.py" by doubkle clicking it
