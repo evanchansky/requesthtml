@@ -15,7 +15,7 @@
    https://and_here_is_another_one.com <br />
    
    
-2. Run the script "InitializeTask.py" by doubkle clicking it
+2. Run the script "InitializeTask.py" by double clicking it
 3. You are all set from here! Here is what the code does:
    - The code packages the script requesthtml.py into an .exe file with the proper configuration values (all in the same folder)
    - The code runs a cmd to start a schtasks task that runs requesthtml.exe every 5 minutes
